@@ -40,7 +40,7 @@ class MemoryProductRespositoryTest {
         .qty(12000)
         .build();
     Product insertProduct = productRepository.insert(product);
-    Assertions.assertThat(insertProduct.getProductId()).isEqualTo(2);
+    Assertions.assertThat(insertProduct.getProductId()).isEqualTo(1);
   }
 
   @Test

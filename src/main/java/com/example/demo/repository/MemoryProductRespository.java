@@ -48,7 +48,7 @@ public class MemoryProductRespository implements ProductRepository {
   @Override
   public Product update(int productId, Product product) {
     Product updateProduct = productMap.get(productId);
-    if(updateProduct != null) {
+    if (updateProduct != null) {
       updateProduct.setQty(product.getQty());   // 존재하지 않으면 null 리턴하고 update 진행 X
       productMap.put(productId, updateProduct);
     }
