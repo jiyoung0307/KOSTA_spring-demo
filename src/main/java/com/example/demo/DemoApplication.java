@@ -1,9 +1,9 @@
-//실행파일
 package com.example.demo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+// 실행파일
 @SpringBootApplication
 public class DemoApplication {
 
