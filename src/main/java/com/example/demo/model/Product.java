@@ -11,5 +11,5 @@ public class Product {
   private String productName;
   private String maker;
   private int price;
-  private int qty;
+  private int qty;    // 수량
 }

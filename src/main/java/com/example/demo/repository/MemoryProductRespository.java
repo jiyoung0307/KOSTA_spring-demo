@@ -44,4 +44,20 @@ public class MemoryProductRespository implements ProductRepository {
     product.setProductId(seq);  // 이 부분이 없으면 seq 번호가 0번이 되므로 1이 증가하지 않는다. 주의하자
     return product;
   }
+
+  @Override
+  public Product update(int productId, Product product) {
+    Product updateProduct = productMap.get(productId);
+    if(updateProduct != null) {
+      updateProduct.setQty(product.getQty());   // 존재하지 않으면 null 리턴하고 update 진행 X
+      productMap.put(productId, updateProduct);
+    }
+    return updateProduct;
+  }
+
+  @Override
+  public Product delete(int productId) {
+    Product removeProduct = productMap.remove(productId);
+    return removeProduct;
+  }
 }

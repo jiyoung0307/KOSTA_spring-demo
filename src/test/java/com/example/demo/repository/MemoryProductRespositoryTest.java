@@ -3,6 +3,7 @@ package com.example.demo.repository;
 import com.example.demo.model.Product;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -40,5 +41,30 @@ class MemoryProductRespositoryTest {
         .build();
     Product insertProduct = productRepository.insert(product);
     Assertions.assertThat(insertProduct.getProductId()).isEqualTo(2);
+  }
+
+  @Test
+  @DisplayName("제품수정테스트")
+  void update() {
+    Product tobeUpdatedProduct =
+        Product.builder()
+            .productName("테스트3")
+            .maker("테스트3")
+            .price(1000)
+            .qty(1000001)
+            .build();
+    productRepository.update(1, tobeUpdatedProduct);
+    Assertions.assertThat(productRepository.findById(1).getQty())
+        .isEqualTo(1000001);
+
+
+  }
+
+  @Test
+  @DisplayName("제품삭제테스트")
+  void delete() {
+    productRepository.delete(1);
+    Assertions.assertThat(productRepository.findById(1))
+        .isEqualTo(null);
   }
 }
