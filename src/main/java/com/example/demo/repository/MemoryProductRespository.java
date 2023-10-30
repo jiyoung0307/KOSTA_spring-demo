@@ -40,8 +40,8 @@ public class MemoryProductRespository implements ProductRepository {
 
   @Override
   public Product insert(Product product) {
-    productMap.put(++seq, product);
     product.setProductId(seq);  // 이 부분이 없으면 seq 번호가 0번이 되므로 1이 증가하지 않는다. 주의하자
+    productMap.put(++seq, product);
     return product;
   }
 
