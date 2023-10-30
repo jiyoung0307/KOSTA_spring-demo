@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Map;
 
 @Repository
+// ctrl + shift + T => test 생성
 public class MemoryProductRespository implements ProductRepository{
   private static Map<Integer, Product> productMap = new HashMap<>();
   private static int seq = 0;
@@ -25,7 +26,6 @@ public class MemoryProductRespository implements ProductRepository{
             .build();
     productMap.put(seq, product);
   }
-
 
   @Override
   public List<Product> findAll() {
