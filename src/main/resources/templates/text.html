@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<!--Thymeleaf 선언-->
+<html xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h3 th:text="${data}">th:text 여기는 보여지는 값 / 태그 안(서버)은 viewController에서 작성한 내용이 동적으로 바뀜</h3>
+    <h3>직접 출력하기=[[${data}]]</h3>
+</body>
+</html>
