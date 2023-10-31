@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<!--Thymeleaf 선언-->
+<html xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>제품명</th>
+            <th>maker</th>
+            <th>가격</th>
+        </tr>
+<!--        반복문은 여기에 작성-->
+        <tr th:each="product :  ${products}">
+            <td th:text="${product.productName}">productName</td>
+            <td th:text="${product.maker}">Maker</td>
+            <td th:text="${product.price}">Price</td>
+        </tr>
+    </table>
+</body>
+</html>

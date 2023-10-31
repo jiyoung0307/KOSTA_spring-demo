@@ -1,14 +1,14 @@
-package com.example.demo.controller;
+package com.example.demo.apiController;
 
 import com.example.demo.model.Post;
 import com.example.demo.model.PostDTO;
 import com.example.demo.service.PostService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
+@RequestMapping("/api")
 public class PostController {
 
   private PostService postService;
@@ -29,29 +29,29 @@ public class PostController {
   }
 
   @PostMapping("/posts")
-  public Post registPost(@RequestBody Post post) {
+  public Post registPost(@RequestBody Post post){
     System.out.println("before == > " + post);
     postService.setPost(post);
-    System.out.println("after == > " + post);
+    System.out.println("after == > " +post);
     return post;
   }
 
   @PutMapping("/posts/{postId}")
   public String updatePost(@PathVariable("postId") int postId,
-                         @RequestBody PostDTO postDTO) {
+                           @RequestBody PostDTO postDTO){
     System.out.println("before == > " + postDTO);
     postService.updatePost(postId, postDTO);
-    System.out.println("after == > " + postDTO);
-    return "업데이트 완료";
+    System.out.println("after == > " +postDTO);
+    return "update 완료";
   }
 
   @GetMapping("/posts/{postId}")
-  public Post viewPostById(@PathVariable("postId") int postId) {
+  public Post viewPostById(@PathVariable("postId") int postId){
     return postService.getPostById(postId);
   }
 
   @DeleteMapping("/posts/{postId}")
-  public void removePost(@PathVariable int postId) {
+  public void removePost(@PathVariable int postId){
     postService.removePost(postId);
   }
 }

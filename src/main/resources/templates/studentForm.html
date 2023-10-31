@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<!--Thymeleaf 선언-->
+<html xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>studentForm</title>
+</head>
+<body>
+    <form th:action="@{/view/student}" action="" method="post">
+        이름<input type="text" name="name"><br>
+        전공<input type="text" name="major"><br>
+        학점<input type="text" name="point"><br>
+        <input type="submit" value="입력">
+    </form>
+</body>
+</html>

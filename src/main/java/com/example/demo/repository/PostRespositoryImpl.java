@@ -1,7 +1,6 @@
 package com.example.demo.repository;
 
 import com.example.demo.model.Post;
-import lombok.Builder;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
@@ -9,7 +8,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@Repository
+// CRUD
+// 구현체이므로 어노테이션 달지 않음
+//@Repository
 public class PostRespositoryImpl implements PostRepository {
   private static Map<Integer, Post> posts = new HashMap<>();
   private static int seq = 0;
@@ -17,7 +18,7 @@ public class PostRespositoryImpl implements PostRepository {
   public PostRespositoryImpl() {
     seq++;
     Post post = new Post();
-    post.setPostid(seq);
+    post.setPostId(seq);
     post.setTitle("testTitle");
     post.setBody("testBody");
     post.setLikes(0);
@@ -42,13 +43,13 @@ public class PostRespositoryImpl implements PostRepository {
   @Override
   public int insertPost(Post post) {
     seq++;
-    post.setPostid(seq);
+    post.setPostId(seq);
     posts.put(seq, post);
-    return post.getPostid();
+    return post.getPostId();
   }
 
   @Override
   public void updatePost(Post post) {
-    posts.put(post.getPostid(), post);
+    posts.put(post.getPostId(), post);
   }
 }

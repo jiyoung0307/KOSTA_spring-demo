@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+    <tr><th>글제목</th><th>좋아요</th></tr>
+    <tr th:each="post : ${posts}">
+        <td name="postid" th:text="${post.postId}" hidden></td>
+        <td>
+            <a href="" th:href="@{/posts/postInfo/{postId}(postId=${post.postId})}"
+               th:text="${post.title}">
+                title
+            </a>
+        </td>
+        <td th:text="${post.likes}">likes</td>
+        <td>
+            <a href="" th:href="@{/posts/updatePost/{postId}(postId=${post.postId})}">
+                수정하기
+            </a>
+        </td>
+        <td>
+            <a href="" th:href="@{/posts/deletePost/{postId}(postId=${post.postId})}">
+                삭제하기
+            </a>
+        </td>
+    </tr>
+</table>
+
+<a href="" th:href="@{/posts/addPost}">
+    새로운 글 등록하기
+</a>
+</body>
+</html>

@@ -1,4 +1,4 @@
-package com.example.demo.controller;
+package com.example.demo.apiController;
 
 import com.example.demo.model.Product;
 import com.example.demo.model.ProductDTO;
@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/products")
+@RequestMapping("/api/products")
 public class ProductController {
   private final ProductService productServie;
 

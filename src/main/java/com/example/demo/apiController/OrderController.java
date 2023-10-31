@@ -1,6 +1,5 @@
-package com.example.demo.controller;
+package com.example.demo.apiController;
 
-import com.example.demo.AppConfig;
 import com.example.demo.model.Product;
 import com.example.demo.service.OrderService;
 import com.example.demo.service.ProductService;
@@ -10,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/products/orders")
+@RequestMapping("/api/products/orders")
 public class OrderController {
   //  주입받을 Service
   private final ProductService productService;

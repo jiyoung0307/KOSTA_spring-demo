@@ -1,4 +1,4 @@
-package com.example.demo.controller;
+package com.example.demo.apiController;
 
 import com.example.demo.model.Student;
 import com.example.demo.model.StudentDTO;
@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/students")
+@RequestMapping("/api/students")
 public class StudentController {
   private final StudentService studentService;
 

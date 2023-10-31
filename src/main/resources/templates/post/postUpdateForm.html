@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:action="@{/posts/updatePost/{postId}(postId=${post.postId})}"
+      th:object="${post}"
+      action="" method="post">
+    제목<input type="text" th:field="*{title}" readonly><br>
+    내용 <textarea name="body" cols="30" rows="10" readonly>[[*{body}]]</textarea>
+    좋아요 <input type="number" th:field="*{likes}">
+    <input type="submit" value="입력">
+</form>
+</body>
+</html>
