@@ -33,12 +33,6 @@ public class StudentRepositoryImpl implements StudentRepository{
   }
 
   @Override
-  public Student removeById(int studentId) {
-    Student removeStudent = studentMap.remove(studentId);
-    return removeStudent;
-  }
-
-  @Override
   public Student add(Student student) {
     student.setStudentId(++seq);
     Student addedStudent = studentMap.put(seq, student);
@@ -53,5 +47,11 @@ public class StudentRepositoryImpl implements StudentRepository{
     } else
       updatedStudent = add(student);
     return updatedStudent;
+  }
+
+  @Override
+  public Student removeById(int studentId) {
+    Student removeStudent = studentMap.remove(studentId);
+    return removeStudent;
   }
 }

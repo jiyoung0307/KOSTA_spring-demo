@@ -1,7 +1,6 @@
 package com.example.demo.webController;
 
 import com.example.demo.model.Post;
-import com.example.demo.model.PostDTO;
 import com.example.demo.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
