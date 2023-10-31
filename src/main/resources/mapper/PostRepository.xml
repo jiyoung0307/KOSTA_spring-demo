@@ -8,4 +8,28 @@
         SELECT postId, title, body, likes
         FROM post
     </select>
+
+    <select id="selectPostById" resultType="com.example.demo.model.Post"
+            parameterType="int">
+        SELECT *
+        FROM post
+        WHERE postId = #{postId}
+    </select>
+
+    <insert id="insertPost" parameterType="com.example.demo.model.Post"
+            useGeneratedKeys="true" keyProperty="postId">
+        INSERT into Post (title,body,likes)
+        VALUES (#{title},#{body},#{likes})
+    </insert>
+
+    <update id="updatePost" parameterType="com.example.demo.model.Post">
+        UPDATE post
+        set likes = #{likes}
+        where postId = #{postId}
+    </update>
+
+    <delete id="deletePost" parameterType="int">
+        DELETE FROM post
+        WHERE postId = #{postId}
+    </delete>
 </mapper>
