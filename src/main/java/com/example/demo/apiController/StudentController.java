@@ -18,24 +18,27 @@ public class StudentController {
     this.studentService = studentService;
   }
 
-  @GetMapping
-  public List<Student> viewAllStudents() {
-    return studentService.getAllStudent();
+  @GetMapping("")
+  public List<Student> getAllStudent(){
+    List<Student> allStudent = studentService.getAllStudent();
+    System.out.println("controller에서 출력");
+    allStudent.forEach(student -> System.out.println(student.getStudentId() + ":" + student.getName()));
+    return allStudent;
   }
 
   @GetMapping("/{studentId}")
   public Student getStudentInfo(@PathVariable int studentId) {
-    return studentService.getStudentInfo(studentId);
+    return studentService.getStudentInfo(studentId).get();
   }
 
   @DeleteMapping("/{studentId}")
-  public String removeStudent(@PathVariable int studentId) {
+  public String removeStudent(@PathVariable int studentId){
     String res = studentService.removeStudent(studentId);
     return res;
   }
 
   @PostMapping
-  public String addStudent(@RequestBody Student student) {
+  public String addStudent(@RequestBody Student student){
     String res = studentService.addStudent(student);
     return res;
   }
@@ -46,4 +49,21 @@ public class StudentController {
     String res = studentService.updateStudent(studentId, studentDTO);
     return res;
   }
+
+  @GetMapping("/major/{major}")
+  public List<Student> getAllStudentsByMajor(@PathVariable String major){
+    return studentService.getAllStudentsByMajor(major);
+  }
+
+  @GetMapping("/point/{point}")
+  public List<Student> getAllStudentsByPoint(@PathVariable int point){
+    return studentService.getAllStudentsByPoint(point);
+  }
+
+  @GetMapping("/major/{major}/point/{point}")
+  public List<Student> getAllStudentsByMajorAndPoint(@PathVariable String major,
+                                                     @PathVariable int point) {
+    return studentService.getAllStudentByMajorAndPoint(major, point);
+  }
+
 }
